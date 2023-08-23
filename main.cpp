@@ -1,10 +1,17 @@
 #include <iostream>
 using namespace std;
+void print(void* p, string type) {
+    if(type == "int")
+        cout << *(int*)p << endl;
+    else if(type == "string")
+        cout << *(string*)p << endl;
+}
 int main() {
-    int var[5] = {0, 1, 2, 3, 4};
-    int *ptr = var;
-    cout << "var = " << *ptr << endl;
-    ptr++;
-    cout << "var = " << *ptr << endl;
+    int num = 10;
+    string str = "Hello";
+    void* p = &num;
+    print(p, "int");
+    p = &str;
+    print(p, "string");
     return 0;
 }
