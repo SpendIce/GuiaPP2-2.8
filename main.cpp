@@ -1,17 +1,16 @@
 #include <iostream>
 using namespace std;
-void print(void* p, string type) {
-    if(type == "int")
-        cout << *(int*)p << endl;
-    else if(type == "string")
-        cout << *(string*)p << endl;
-}
+
 int main() {
     int num = 10;
-    string str = "Hello";
-    void* p = &num;
-    print(p, "int");
-    p = &str;
-    print(p, "string");
+    int* const p = &num;
+    cout << *p << endl;
+    *p = 20;
+    cout << *p << endl;
+    int const n2 = 30;
+    int* p2 = &n2;
+    cout << *p2 << endl;
+    *p2 = 40;
+    cout << *p2 << endl;
     return 0;
 }
