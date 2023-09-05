@@ -1,13 +1,31 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    int *p = new int[5] {1, 2, 3, 4, 5};
-    int suma = 0;
-    for (int i = 0; i < 5; i++) {
-        suma += *p;
-        p++;
+void invertir(int* vector)
+{
+    int* inicio = vector;
+    int* fin = vector;
+    while (*fin != '\0')
+    {
+        fin++;
     }
-    cout << "Suma: " << suma << endl;
+    fin--;
+    while (inicio < fin)
+    {
+        int temp = *inicio;
+        *inicio = *fin;
+        *fin = temp;
+        inicio++;
+        fin--;
+    }
+}
+
+int main() {
+    int vector[5] = {1, 2, 3, 4, 5};
+    invertir(vector);
+    for (int i = 0; i < 5; i++)
+    {
+        cout << vector[i] << endl;
+    }
     return 0;
 }
