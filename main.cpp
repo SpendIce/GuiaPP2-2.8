@@ -1,31 +1,22 @@
 #include <iostream>
 using namespace std;
 
-void invertir(int* vector)
+int vocales(char* vector)
 {
-    int* inicio = vector;
-    int* fin = vector;
-    while (*fin != '\0')
+    int vocales = 0;
+    while(*vector != '\0')
     {
-        fin++;
+        if (*vector == 'a' || *vector == 'e' || *vector == 'i' || *vector == 'o' || *vector == 'u')
+        {
+            vocales++;
+        }
+        vector++;
     }
-    fin--;
-    while (inicio < fin)
-    {
-        int temp = *inicio;
-        *inicio = *fin;
-        *fin = temp;
-        inicio++;
-        fin--;
-    }
+    return vocales;
 }
 
 int main() {
-    int vector[5] = {1, 2, 3, 4, 5};
-    invertir(vector);
-    for (int i = 0; i < 5; i++)
-    {
-        cout << vector[i] << endl;
-    }
+    string palabra = "banana mundo";
+    cout << "La palabra " << palabra << " tiene " << vocales(&palabra[0]) << " vocales" << endl;
     return 0;
 }
