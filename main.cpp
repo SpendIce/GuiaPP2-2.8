@@ -3,23 +3,29 @@
 #include <cctype>
 
 using namespace std;
-struct Fecha {
-    int dia;
-    int mes;
-    int anio;
-};
-struct Persona {
+struct Empleado {
     string nombre;
-    Fecha fechaNacimiento;
+    string departamento;
+    float salario;
 };
-
+int salarioPromedio(Empleado* empleados, int n) {
+    float suma = 0;
+    for (int i = 0; i < n; i++) {
+        suma += empleados[i].salario;
+    }
+    return suma / n;
+}
 int main() {
-    Persona* persona1 = new Persona;
-    persona1->nombre = "Juan";
-    persona1->fechaNacimiento.dia = 1;
-    persona1->fechaNacimiento.mes = 4;
-    persona1->fechaNacimiento.anio = 2000;
-    cout << "Nombre: " << persona1->nombre << endl;
-    cout << "Fecha de nacimiento: " << persona1->fechaNacimiento.dia << "/" << persona1->fechaNacimiento.mes << "/" << persona1->fechaNacimiento.anio << endl;
+    Empleado empleados[3];
+    for (int i = 0; i < 3; i++) {
+        cout << "Ingrese el nombre del empleado " << i + 1 << ": ";
+        getline(cin, empleados[i].nombre);
+        cout << "Ingrese el departamento del empleado " << i + 1 << ": ";
+        getline(cin, empleados[i].departamento);
+        cout << "Ingrese el salario del empleado " << i + 1 << ": ";
+        cin >> empleados[i].salario;
+        cin.ignore();
+    }
+    cout << "El salario promedio es: " << salarioPromedio(empleados, 3) << endl;
     return 0;
 }
