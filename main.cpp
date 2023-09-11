@@ -3,22 +3,22 @@
 #include <cctype>
 
 using namespace std;
-//Crea una función que tome una estructura Círculo (con miembro radio) como argumento y
-//calcule su área. Luego, usa esta función para calcular y mostrar el área de varios círculos.
-struct Circulo {
-    float radio;
+//Crea una estructura Producto con miembros nombre, precio y cantidad. Luego, crea un
+//puntero a Producto, asigna valores a través del puntero y muestra los datos del producto
+struct Producto {
+    string nombre;
+    float precio;
+    int cantidad;
 };
-float areaCirculo(Circulo circulo) {
-    return 3.1416 * circulo.radio * circulo.radio;
-}
 
 int main() {
-    Circulo *circulo1 = new Circulo;
-    circulo1->radio = 5.2;
-    cout << "El area del circulo es: " << areaCirculo(*circulo1) << endl;
-    circulo1->radio = 10.4;
-    cout << "El area del circulo es: " << areaCirculo(*circulo1) << endl;
-    circulo1->radio = 2.4;
-    cout << "El area del circulo es: " << areaCirculo(*circulo1) << endl;
+    Producto *pProducto = new Producto;
+    pProducto->nombre = "Coca Cola";
+    pProducto->precio = 1.5;
+    pProducto->cantidad = 5;
+    cout << "Nombre: " << pProducto->nombre << endl;
+    cout << "Precio: " << pProducto->precio << endl;
+    cout << "Cantidad: " << pProducto->cantidad << endl;
+    delete pProducto;
     return 0;
 }
