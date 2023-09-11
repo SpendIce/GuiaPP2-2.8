@@ -3,22 +3,23 @@
 #include <cctype>
 
 using namespace std;
-struct Estudiante {
+struct Fecha {
+    int dia;
+    int mes;
+    int anio;
+};
+struct Persona {
     string nombre;
-    int edad;
-    int calificacion;
+    Fecha fechaNacimiento;
 };
 
 int main() {
-    Estudiante *estudiante = new Estudiante;
-    cout << "Ingrese el nombre del estudiante: ";
-    getline(cin, estudiante->nombre);
-    cout << "Ingrese la edad del estudiante: ";
-    cin >> estudiante->edad;
-    cout << "Ingrese la calificacion del estudiante: ";
-    cin >> estudiante->calificacion;
-    cout << "Nombre: " << estudiante->nombre << endl;
-    cout << "Edad: " << estudiante->edad << endl;
-    cout << "Calificacion: " << estudiante->calificacion << endl;
+    Persona* persona1 = new Persona;
+    persona1->nombre = "Juan";
+    persona1->fechaNacimiento.dia = 1;
+    persona1->fechaNacimiento.mes = 4;
+    persona1->fechaNacimiento.anio = 2000;
+    cout << "Nombre: " << persona1->nombre << endl;
+    cout << "Fecha de nacimiento: " << persona1->fechaNacimiento.dia << "/" << persona1->fechaNacimiento.mes << "/" << persona1->fechaNacimiento.anio << endl;
     return 0;
 }
