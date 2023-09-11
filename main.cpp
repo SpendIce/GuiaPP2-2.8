@@ -3,29 +3,33 @@
 #include <cctype>
 
 using namespace std;
-struct Empleado {
-    string nombre;
-    string departamento;
-    float salario;
+struct Fecha {
+    int dia;
+    int mes;
+    int anio;
 };
-int salarioPromedio(Empleado* empleados, int n) {
-    float suma = 0;
-    for (int i = 0; i < n; i++) {
-        suma += empleados[i].salario;
-    }
-    return suma / n;
-}
+struct Persona {
+    string nombre;
+    Fecha fechaNacimiento;
+};
+
 int main() {
-    Empleado empleados[3];
+    Persona* personas = new Persona[3];
+    personas[0].nombre = "Juan";
+    personas[0].fechaNacimiento.dia = 1;
+    personas[0].fechaNacimiento.mes = 1;
+    personas[0].fechaNacimiento.anio = 2000;
+    personas[1].nombre = "Pedro";
+    personas[1].fechaNacimiento.dia = 2;
+    personas[1].fechaNacimiento.mes = 2;
+    personas[1].fechaNacimiento.anio = 2001;
+    personas[2].nombre = "Maria";
+    personas[2].fechaNacimiento.dia = 3;
+    personas[2].fechaNacimiento.mes = 3;
+    personas[2].fechaNacimiento.anio = 2002;
     for (int i = 0; i < 3; i++) {
-        cout << "Ingrese el nombre del empleado " << i + 1 << ": ";
-        getline(cin, empleados[i].nombre);
-        cout << "Ingrese el departamento del empleado " << i + 1 << ": ";
-        getline(cin, empleados[i].departamento);
-        cout << "Ingrese el salario del empleado " << i + 1 << ": ";
-        cin >> empleados[i].salario;
-        cin.ignore();
+        cout << "Nombre: " << personas[i].nombre << endl;
+        cout << "Fecha de nacimiento: " << personas[i].fechaNacimiento.dia << "/" << personas[i].fechaNacimiento.mes << "/" << personas[i].fechaNacimiento.anio << endl;
     }
-    cout << "El salario promedio es: " << salarioPromedio(empleados, 3) << endl;
     return 0;
 }
